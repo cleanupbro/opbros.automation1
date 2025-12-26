@@ -1,0 +1,9 @@
+# OpBros.Automation Robots.txt
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://opbros.ai/sitemap.xml
+
+# Crawl-delay
+Crawl-delay: 1
