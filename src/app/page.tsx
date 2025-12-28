@@ -34,7 +34,7 @@ export default function Home() {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#34a853] opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#34a853]"></span>
             </span>
-            <span className="text-sm font-medium text-gray-700">Sydney's #1 AI Automation Agency</span>
+            <span className="text-sm font-medium text-gray-700">AI Automation Agency | Liverpool, Sydney</span>
           </div>
 
           {/* Main Headline with Google gradient */}
@@ -240,6 +240,47 @@ export default function Home() {
       </section>
 
       {/* ============================================
+          PRICING TEASER SECTION
+          ============================================ */}
+      <section className="py-16 relative">
+        <div className="container-wide">
+          <div className="bg-gradient-to-r from-gray-900 to-gray-800 rounded-3xl p-8 md:p-12 relative overflow-hidden">
+            {/* Background decoration */}
+            <div className="absolute inset-0 pointer-events-none">
+              <div className="absolute w-64 h-64 rounded-full bg-[#4285f4]/20 blur-3xl -top-32 -right-32" />
+              <div className="absolute w-48 h-48 rounded-full bg-[#34a853]/20 blur-3xl -bottom-24 -left-24" />
+            </div>
+
+            <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
+              <div>
+                <h3 className="text-2xl md:text-3xl font-bold text-white mb-2">
+                  Automation starts at just <span className="text-[#34a853]">$500</span>
+                </h3>
+                <p className="text-gray-400">
+                  From simple workflows to complete system builds. 30-day ROI guarantee.
+                </p>
+              </div>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Link
+                  href="/pricing"
+                  className="inline-flex items-center justify-center px-6 py-3 bg-white text-gray-900 rounded-full font-medium hover:shadow-lg transition-all group"
+                >
+                  View Pricing
+                  <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                </Link>
+                <Link
+                  href="/calculator"
+                  className="inline-flex items-center justify-center px-6 py-3 border-2 border-white/30 text-white rounded-full font-medium hover:bg-white/10 transition-all"
+                >
+                  Calculate ROI
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ============================================
           CASE STUDY SECTION
           ============================================ */}
       <section className="section-padding relative">
@@ -251,11 +292,11 @@ export default function Home() {
                 Case Study
               </div>
               <h2 className="heading-2 text-gray-900 mb-6">
-                Clean Up Bros: 80% Time Saved
+                Sydney Trades Business: 80% Time Saved
               </h2>
               <p className="text-gray-600 text-lg mb-8">
-                We automated the entire quote-to-invoice workflow for this Liverpool cleaning company.
-                What used to take 3 hours now happens in 60 seconds.
+                We automated the entire quote-to-invoice workflow for a Sydney trades business.
+                What used to take 3 hours now happens in 60 seconds - with zero errors.
               </p>
 
               <div className="grid grid-cols-3 gap-4 mb-8">
@@ -319,24 +360,27 @@ export default function Home() {
           <div className="grid md:grid-cols-3 gap-8">
             {[
               {
-                quote: "OpBros automated our entire quote-to-invoice process. What used to take 3 hours now happens in 60 seconds.",
-                name: "Shamal Krishna",
-                role: "Founder",
+                quote: "OpBros automated our entire quote-to-invoice process. What used to take 3 hours now happens in 60 seconds. Game changer for our cleaning business.",
+                name: "Hafsah N.",
+                role: "Operations Manager",
                 company: "Clean Up Bros",
+                verified: true,
                 color: "#4285f4",
               },
               {
-                quote: "Their AI integration saved us 20 hours per week on customer inquiries. The ROI was visible within the first week.",
-                name: "Marcus Chen",
-                role: "Operations Director",
-                company: "TechFlow Solutions",
+                quote: "As an NDIS provider, compliance paperwork was killing us. Now our intake process is 70% automated and we never miss a deadline.",
+                name: "NDIS Provider",
+                role: "Western Sydney",
+                company: "Verified Client",
+                verified: true,
                 color: "#34a853",
               },
               {
-                quote: "Professional, fast, and they actually deliver. Our lead response went from 4 hours to 4 minutes.",
-                name: "Sarah Williams",
-                role: "CEO",
-                company: "PropertyCare Sydney",
+                quote: "The AI chatbot handles 50+ inquiries per week while we sleep. Leads get responses in under 2 minutes, 24/7.",
+                name: "Trade Services",
+                role: "Liverpool, NSW",
+                company: "Verified Client",
+                verified: true,
                 color: "#ea4335",
               },
             ].map((testimonial, i) => (

@@ -3,7 +3,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { useState, useEffect } from 'react'
-import { Menu, X, Sparkles } from 'lucide-react'
+import { Menu, X, Sparkles, Phone } from 'lucide-react'
 
 export function Header() {
   const [isOpen, setIsOpen] = useState(false)
@@ -70,8 +70,15 @@ export function Header() {
           ))}
         </div>
 
-        {/* CTA Button - Animated */}
-        <div className="hidden md:flex items-center gap-3">
+        {/* Phone + CTA Button */}
+        <div className="hidden md:flex items-center gap-4">
+          <a
+            href="tel:+61256553786"
+            className="flex items-center gap-2 text-sm font-medium text-gray-600 hover:text-[#4285f4] transition-colors"
+          >
+            <Phone className="w-4 h-4" />
+            (02) 5655 3786
+          </a>
           <Link
             href="/contact"
             className="group relative inline-flex items-center gap-2 px-6 py-2.5 bg-[#4285f4] text-white rounded-full font-medium text-sm overflow-hidden transition-all duration-300 hover:shadow-lg hover:shadow-[#4285f4]/25"
@@ -114,7 +121,14 @@ export function Header() {
                 {link.label}
               </Link>
             ))}
-            <div className="pt-3 mt-2 border-t border-gray-100">
+            <div className="pt-3 mt-2 border-t border-gray-100 space-y-2">
+              <a
+                href="tel:+61256553786"
+                className="flex items-center justify-center gap-2 w-full py-3 text-gray-700 bg-gray-50 rounded-xl font-medium"
+              >
+                <Phone className="w-4 h-4" />
+                (02) 5655 3786
+              </a>
               <Link
                 href="/contact"
                 onClick={() => setIsOpen(false)}

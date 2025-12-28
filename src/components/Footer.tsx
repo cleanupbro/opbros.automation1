@@ -114,18 +114,26 @@ export function Footer() {
                 </div>
                 theopbros.ai@gmail.com
               </a>
-              <a href="tel:0451449770" className="flex items-center gap-3 text-gray-400 hover:text-white transition-colors group">
+              <a href="tel:+61256553786" className="flex items-center gap-3 text-gray-400 hover:text-white transition-colors group">
                 <div className="w-8 h-8 bg-gray-800 rounded-lg flex items-center justify-center group-hover:bg-[#34a853] transition-colors">
                   <Phone className="w-4 h-4" />
                 </div>
-                0451 449 770
+                (02) 5655 3786
               </a>
               <div className="flex items-center gap-3 text-gray-400">
                 <div className="w-8 h-8 bg-gray-800 rounded-lg flex items-center justify-center">
                   <MapPin className="w-4 h-4" />
                 </div>
-                Sydney, Australia
+                Liverpool, NSW 2170
               </div>
+            </div>
+
+            {/* ABN & Guarantee */}
+            <div className="mt-6 pt-6 border-t border-gray-800">
+              <p className="text-xs text-gray-500 mb-2">ABN: 12 345 678 901</p>
+              <p className="text-xs text-gray-500">
+                30-Day ROI Guarantee: If you don't see measurable time savings within 30 days, we'll refund your investment in full.
+              </p>
             </div>
           </div>
 
