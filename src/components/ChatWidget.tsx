@@ -89,7 +89,7 @@ export function ChatWidget() {
 
       const assistantMessage: Message = {
         role: 'assistant',
-        content: data.message || "I'd be happy to help! For the best assistance, please book a free 30-minute discovery call.",
+        content: data.response || data.message || "I'd be happy to help! Book a free call: calendly.com/theopbros-ai/30min",
         timestamp: new Date()
       }
 
@@ -146,7 +146,7 @@ export function ChatWidget() {
             </div>
             <div>
               <h3 className="font-semibold">OpBros AI</h3>
-              <p className="text-xs text-white/80">Powered by Gemini</p>
+              <p className="text-xs text-white/80">AI Assistant</p>
             </div>
           </div>
           <button
