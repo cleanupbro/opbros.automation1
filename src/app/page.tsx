@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { ArrowRight, Zap, Bot, Cpu, BarChart3, Clock, CheckCircle2, Sparkles, Star, Quote, Play, Users, TrendingUp } from 'lucide-react'
+import { ArrowRight, Zap, Bot, Cpu, BarChart3, Clock, CheckCircle2, Sparkles, Star, Quote, Play, Users, TrendingUp, Heart, Building2, Shield, Award } from 'lucide-react'
 import { Header } from '../components/Header'
 import { Footer } from '../components/Footer'
 import { AntigravityBackground } from '../components/AntigravityBackground'
@@ -375,9 +375,115 @@ export default function Home() {
       </section>
 
       {/* ============================================
+          NDIS PROVIDERS SECTION
+          ============================================ */}
+      <section className="section-padding relative overflow-hidden">
+        {/* Background decoration */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute w-[500px] h-[500px] rounded-full bg-gradient-to-br from-[#34a853]/10 to-transparent blur-3xl -top-64 -left-64 animate-morph" />
+          <div className="absolute w-[400px] h-[400px] rounded-full bg-gradient-to-br from-[#4285f4]/10 to-transparent blur-3xl -bottom-64 -right-64 animate-morph delay-2000" />
+        </div>
+
+        <div className="container-wide relative z-10">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#34a853]/10 text-[#34a853] text-sm font-medium mb-4">
+                <Heart className="w-4 h-4" />
+                NDIS Providers
+              </div>
+              <h2 className="heading-2 text-gray-900 mb-6">
+                Built for <span className="google-gradient-text">NDIS Providers</span>
+              </h2>
+              <p className="text-gray-600 text-lg mb-8">
+                We understand the unique challenges of NDIS service delivery. Our automation systems help providers reduce admin burden, improve compliance, and focus on what matters most - participant outcomes.
+              </p>
+
+              <div className="space-y-4 mb-8">
+                {[
+                  { text: 'Automated participant intake & onboarding', color: '#4285f4' },
+                  { text: 'Service agreement generation & tracking', color: '#34a853' },
+                  { text: 'Compliance documentation automation', color: '#ea4335' },
+                  { text: 'Rostering & scheduling automation', color: '#fbbc04' },
+                ].map((item, i) => (
+                  <div key={i} className="flex items-center gap-3">
+                    <div
+                      className="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0"
+                      style={{ backgroundColor: `${item.color}20` }}
+                    >
+                      <CheckCircle2 className="w-4 h-4" style={{ color: item.color }} />
+                    </div>
+                    <span className="text-gray-700">{item.text}</span>
+                  </div>
+                ))}
+              </div>
+
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Link
+                  href="/ndis-calculator"
+                  className="inline-flex items-center justify-center px-6 py-3 bg-[#34a853] text-white rounded-full font-medium hover:shadow-lg hover:scale-105 transition-all group"
+                >
+                  Calculate Your NDIS ROI
+                  <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                </Link>
+                <Link
+                  href="/blog/ndis-automation-complete-provider-guide"
+                  className="inline-flex items-center justify-center px-6 py-3 text-[#34a853] border-2 border-[#34a853]/30 rounded-full font-medium hover:bg-[#34a853]/10 transition-all"
+                >
+                  Read NDIS Guide
+                </Link>
+              </div>
+            </div>
+
+            <div className="relative">
+              <div className="bg-gradient-to-br from-[#34a853] to-[#2d8f47] rounded-3xl p-8 relative overflow-hidden">
+                {/* Floating elements inside */}
+                <div className="absolute inset-0 overflow-hidden">
+                  <div className="absolute w-32 h-32 rounded-full bg-white/10 blur-2xl top-4 right-4 animate-drift" />
+                  <div className="absolute w-24 h-24 rounded-full bg-white/10 blur-2xl bottom-8 left-8 animate-drift delay-1000" />
+                </div>
+
+                <div className="relative z-10">
+                  <div className="flex items-center gap-4 mb-6">
+                    <div className="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center animate-hover-bob">
+                      <Heart className="w-8 h-8 text-white" />
+                    </div>
+                    <div>
+                      <p className="text-white/80 text-sm">NDIS Provider Results</p>
+                      <p className="text-2xl font-bold text-white">1,851% ROI</p>
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-2 gap-4">
+                    {[
+                      { value: '15hrs', label: 'Saved Weekly' },
+                      { value: '$42K', label: 'Annual Savings' },
+                      { value: '30', label: 'Day Payback' },
+                      { value: '100%', label: 'Compliance' },
+                    ].map((stat, i) => (
+                      <div key={i} className="bg-white/10 rounded-xl p-4 text-center">
+                        <p className="text-2xl font-bold text-white">{stat.value}</p>
+                        <p className="text-white/70 text-sm">{stat.label}</p>
+                      </div>
+                    ))}
+                  </div>
+
+                  <div className="mt-6 p-4 bg-white/10 rounded-xl">
+                    <p className="text-white/90 italic">
+                      "OpBros reduced our admin time by 70%. Now we can focus on our participants."
+                    </p>
+                    <p className="text-white/60 text-sm mt-2">— NDIS Provider, Western Sydney</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ============================================
           HOW IT WORKS SECTION
           ============================================ */}
-      <section className="section-padding relative">
+      <section className="section-padding bg-gray-50 relative">
         <div className="container-wide">
           <div className="text-center mb-16">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#4285f4]/10 text-[#4285f4] text-sm font-medium mb-4">
@@ -406,6 +512,83 @@ export default function Home() {
                 <p className="text-gray-600 text-sm">{item.desc}</p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ============================================
+          TRUST & SOCIAL PROOF SECTION
+          ============================================ */}
+      <section className="py-16 relative overflow-hidden">
+        <div className="container-wide">
+          {/* Animated Counter Stats */}
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#4285f4]/10 text-[#4285f4] text-sm font-medium mb-4">
+              <Award className="w-4 h-4" />
+              Trusted by Sydney Businesses
+            </div>
+            <h2 className="heading-2 text-gray-900 mb-4">Real Results, Guaranteed</h2>
+          </div>
+
+          {/* Big Stats Counter */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
+            {[
+              { value: '500+', label: 'Hours Saved', sublabel: 'For Sydney businesses', color: '#4285f4' },
+              { value: '50+', label: 'Workflows Built', sublabel: 'Custom automation', color: '#34a853' },
+              { value: '30', label: 'Day ROI', sublabel: 'Guaranteed', color: '#ea4335' },
+              { value: '100%', label: 'Client Satisfaction', sublabel: 'No exceptions', color: '#fbbc04' },
+            ].map((stat, i) => (
+              <div
+                key={i}
+                className="floating-card bg-white rounded-3xl p-6 text-center border border-gray-100 shadow-sm"
+              >
+                <p className="text-4xl md:text-5xl font-bold mb-2" style={{ color: stat.color }}>
+                  {stat.value}
+                </p>
+                <p className="text-lg font-semibold text-gray-900">{stat.label}</p>
+                <p className="text-sm text-gray-500">{stat.sublabel}</p>
+              </div>
+            ))}
+          </div>
+
+          {/* Trust Badges */}
+          <div className="flex flex-wrap justify-center items-center gap-8 mb-12">
+            {[
+              { icon: Shield, text: '30-Day ROI Guarantee', color: '#34a853' },
+              { icon: Building2, text: 'n8n Certified Partner', color: '#4285f4' },
+              { icon: Award, text: 'Google Workspace Partner', color: '#ea4335' },
+              { icon: Heart, text: 'NDIS Provider Specialists', color: '#fbbc04' },
+            ].map((badge, i) => (
+              <div
+                key={i}
+                className="flex items-center gap-3 px-5 py-3 rounded-full bg-gray-50 border border-gray-100"
+              >
+                <badge.icon className="w-5 h-5" style={{ color: badge.color }} />
+                <span className="text-sm font-medium text-gray-700">{badge.text}</span>
+              </div>
+            ))}
+          </div>
+
+          {/* Industries We Serve */}
+          <div className="text-center">
+            <p className="text-sm text-gray-500 mb-4">Industries we serve</p>
+            <div className="flex flex-wrap justify-center gap-3">
+              {[
+                'NDIS Providers',
+                'Trades & Services',
+                'Healthcare',
+                'Real Estate',
+                'E-commerce',
+                'Professional Services',
+              ].map((industry, i) => (
+                <span
+                  key={i}
+                  className="px-4 py-2 rounded-full bg-gray-100 text-gray-600 text-sm font-medium hover:bg-gray-200 transition-colors cursor-default"
+                >
+                  {industry}
+                </span>
+              ))}
+            </div>
           </div>
         </div>
       </section>

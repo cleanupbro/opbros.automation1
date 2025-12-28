@@ -19,6 +19,16 @@ export const metadata: Metadata = {
 
 const blogPosts = [
   {
+    slug: 'ndis-automation-complete-provider-guide',
+    title: 'NDIS Automation: Complete Provider Guide',
+    excerpt: 'How NDIS providers are using automation to reduce admin burden, improve compliance, and deliver better participant outcomes.',
+    category: 'Guides',
+    date: '2024-12-28',
+    readTime: '6 min read',
+    color: '#4285f4',
+    featured: true,
+  },
+  {
     slug: 'how-ai-automation-saves-sydney-businesses-20-hours-weekly',
     title: 'How AI Automation Saves Sydney Businesses 20+ Hours Weekly',
     excerpt: 'Discover the exact automation strategies that local Sydney businesses are using to reclaim their time and focus on growth.',
@@ -29,6 +39,36 @@ const blogPosts = [
     featured: true,
   },
   {
+    slug: '5-signs-your-business-needs-automation',
+    title: '5 Signs Your Business Needs Automation',
+    excerpt: 'Not sure if automation is right for you? Here are the warning signs that manual processes are holding your business back.',
+    category: 'Tips',
+    date: '2024-12-26',
+    readTime: '4 min read',
+    color: '#ea4335',
+    featured: false,
+  },
+  {
+    slug: 'client-story-how-we-saved-30-hours-week',
+    title: 'Client Story: How We Saved 30 Hours/Week for a Sydney Trades Business',
+    excerpt: 'A deep dive into how we transformed operations for a plumbing business, cutting admin time by 75%.',
+    category: 'Case Studies',
+    date: '2024-12-24',
+    readTime: '5 min read',
+    color: '#4285f4',
+    featured: false,
+  },
+  {
+    slug: 'ai-in-2025-what-sydney-businesses-need-to-know',
+    title: 'AI in 2025: What Sydney Businesses Need to Know',
+    excerpt: 'The AI landscape is evolving rapidly. Here\'s what practical AI adoption looks like for Australian SMEs.',
+    category: 'Guides',
+    date: '2024-12-22',
+    readTime: '6 min read',
+    color: '#34a853',
+    featured: false,
+  },
+  {
     slug: 'complete-guide-to-workflow-automation-for-australian-smes',
     title: 'The Complete Guide to Workflow Automation for Australian SMEs',
     excerpt: 'Everything you need to know about automating your business processes, from choosing the right tools to implementation strategies.',
@@ -36,7 +76,7 @@ const blogPosts = [
     date: '2024-12-20',
     readTime: '8 min read',
     color: '#34a853',
-    featured: true,
+    featured: false,
   },
   {
     slug: 'top-10-manual-tasks-you-should-automate-today',
@@ -82,11 +122,11 @@ const blogPosts = [
 
 const categories = [
   { name: 'All', count: blogPosts.length },
-  { name: 'Case Studies', count: 1, color: '#4285f4' },
-  { name: 'Guides', count: 2, color: '#34a853' },
-  { name: 'Tips', count: 1, color: '#ea4335' },
+  { name: 'Case Studies', count: 3, color: '#4285f4' },
+  { name: 'Guides', count: 4, color: '#34a853' },
+  { name: 'Tips', count: 2, color: '#ea4335' },
   { name: 'Comparisons', count: 1, color: '#fbbc04' },
-  { name: 'Tutorials', count: 1, color: '#4285f4' },
+  { name: 'Tutorials', count: 1, color: '#34a853' },
 ]
 
 export default function BlogPage() {

@@ -13,7 +13,7 @@ interface QuizAnswer {
 export function LeadCapture() {
   const [state, setState] = useState<WidgetState>('minimized')
   const [showPulse, setShowPulse] = useState(true)
-  const [formData, setFormData] = useState({ name: '', email: '', phone: '' })
+  const [formData, setFormData] = useState({ name: '', email: '', phone: '', smsConsent: false })
   const [quizStep, setQuizStep] = useState(0)
   const [quizAnswers, setQuizAnswers] = useState<QuizAnswer[]>([])
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -118,6 +118,20 @@ export function LeadCapture() {
       })
       setState('success')
       setHasInteracted(true)
+
+      // Trigger SMS follow-up if phone provided and consent given
+      if (formData.phone && formData.smsConsent) {
+        fetch('https://nioctibinu.online/webhook/sms-followup', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            name: formData.name,
+            email: formData.email,
+            phone: formData.phone,
+            source: 'opbros-widget',
+          }),
+        }).catch(() => {})
+      }
     } catch (error) {
       console.error('Submission error:', error)
     } finally {
@@ -373,6 +387,17 @@ export function LeadCapture() {
                 onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                 className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:border-[#4285f4] transition-colors"
               />
+              {formData.phone && (
+                <label className="flex items-center gap-2 text-sm text-gray-600 cursor-pointer">
+                  <input
+                    type="checkbox"
+                    checked={formData.smsConsent}
+                    onChange={(e) => setFormData({ ...formData, smsConsent: e.target.checked })}
+                    className="w-4 h-4 rounded border-gray-300 text-[#4285f4] focus:ring-[#4285f4]"
+                  />
+                  <span>Send me SMS follow-ups (we won't spam you)</span>
+                </label>
+              )}
               <button
                 type="submit"
                 disabled={isSubmitting}

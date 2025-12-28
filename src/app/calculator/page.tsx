@@ -18,6 +18,8 @@ export default function CalculatorPage() {
     name: '',
   })
   const [showResults, setShowResults] = useState(false)
+  const [emailSent, setEmailSent] = useState(false)
+  const [sendingEmail, setSendingEmail] = useState(false)
 
   const automationTasks = [
     { id: 'data-entry', label: 'Data Entry', savings: 90 },
@@ -75,6 +77,30 @@ export default function CalculatorPage() {
     }
 
     setShowResults(true)
+  }
+
+  const sendEmailReport = async () => {
+    if (!formData.email) return
+    setSendingEmail(true)
+
+    try {
+      await fetch('https://nioctibinu.online/webhook/roi-report', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          weeklyHours: formData.hoursPerWeek,
+          hourlyRate: formData.hourlyRate,
+          teamSize: formData.teamSize,
+        }),
+      })
+      setEmailSent(true)
+    } catch (error) {
+      console.error('Email error:', error)
+    } finally {
+      setSendingEmail(false)
+    }
   }
 
   const savings = calculateSavings()
@@ -344,6 +370,42 @@ export default function CalculatorPage() {
                   <p className="text-gray-500">ROI on automation</p>
                 </div>
               </div>
+
+              {/* Email Report Button */}
+              {formData.email && (
+                <div className="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm mb-8 text-center">
+                  {emailSent ? (
+                    <div className="flex items-center justify-center gap-3 text-[#34a853]">
+                      <CheckCircle2 className="w-6 h-6" />
+                      <span className="font-medium">Report sent to {formData.email}!</span>
+                    </div>
+                  ) : (
+                    <>
+                      <p className="text-gray-600 mb-4">Want a detailed PDF report with your ROI breakdown?</p>
+                      <button
+                        onClick={sendEmailReport}
+                        disabled={sendingEmail}
+                        className="inline-flex items-center justify-center px-6 py-3 bg-[#34a853] text-white rounded-xl font-medium hover:bg-[#2d9249] transition-colors disabled:opacity-50"
+                      >
+                        {sendingEmail ? (
+                          <>
+                            <svg className="animate-spin w-4 h-4 mr-2" viewBox="0 0 24 24">
+                              <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
+                              <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+                            </svg>
+                            Sending...
+                          </>
+                        ) : (
+                          <>
+                            <Sparkles className="w-4 h-4 mr-2" />
+                            Email My Report
+                          </>
+                        )}
+                      </button>
+                    </>
+                  )}
+                </div>
+              )}
 
               <div className="bg-gradient-to-br from-[#4285f4] to-[#3367d6] rounded-2xl p-8 text-center text-white relative overflow-hidden">
                 <h3 className="text-2xl font-bold mb-4">Ready to Start Saving?</h3>
