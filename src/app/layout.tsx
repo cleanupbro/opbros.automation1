@@ -26,9 +26,14 @@ export const metadata: Metadata = {
   authors: [{ name: 'OpBros.Automation' }],
   creator: 'OpBros.Automation',
   publisher: 'OpBros.Automation',
-  metadataBase: new URL('https://opbros.ai'),
+  metadataBase: new URL('https://www.opbros.online'),
   alternates: {
     canonical: '/',
+  },
+  icons: {
+    icon: '/logo.png',
+    shortcut: '/logo.png',
+    apple: '/logo.png',
   },
   openGraph: {
     title: 'AI Automation Sydney | OpBros.Automation | Stop Hiring. Start Automating.',
@@ -36,7 +41,15 @@ export const metadata: Metadata = {
     type: 'website',
     siteName: 'OpBros.Automation',
     locale: 'en_AU',
-    url: 'https://opbros.ai',
+    url: 'https://www.opbros.online',
+    images: [
+      {
+        url: '/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'OpBros.Automation - Stop Hiring. Start Automating.',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
@@ -44,6 +57,7 @@ export const metadata: Metadata = {
     description: 'Sydney\'s #1 AI automation agency. 80% time saved. 30-day ROI guarantee.',
     creator: '@OpBrosAi',
     site: '@OpBrosAi',
+    images: ['/og-image.png'],
   },
   robots: {
     index: true,
@@ -67,11 +81,11 @@ const jsonLd = {
   '@graph': [
     {
       '@type': 'LocalBusiness',
-      '@id': 'https://opbros.ai/#business',
+      '@id': 'https://www.opbros.online/#business',
       name: 'OpBros.Automation',
       alternateName: 'OpBros AI',
       description: 'AI-powered workflow automation agency in Sydney. We build custom automation systems that eliminate manual work and deliver measurable ROI within 30 days.',
-      url: 'https://opbros.ai',
+      url: 'https://www.opbros.online',
       telephone: '+61451449770',
       email: 'theopbros.ai@gmail.com',
       priceRange: '$500-$15000',
@@ -137,12 +151,12 @@ const jsonLd = {
     },
     {
       '@type': 'Organization',
-      '@id': 'https://opbros.ai/#organization',
+      '@id': 'https://www.opbros.online/#organization',
       name: 'OpBros.Automation',
-      url: 'https://opbros.ai',
+      url: 'https://www.opbros.online',
       logo: {
         '@type': 'ImageObject',
-        url: 'https://opbros.ai/logo.png',
+        url: 'https://www.opbros.online/logo.png',
       },
       contactPoint: {
         '@type': 'ContactPoint',
@@ -154,24 +168,24 @@ const jsonLd = {
     },
     {
       '@type': 'WebSite',
-      '@id': 'https://opbros.ai/#website',
-      url: 'https://opbros.ai',
+      '@id': 'https://www.opbros.online/#website',
+      url: 'https://www.opbros.online',
       name: 'OpBros.Automation',
       publisher: {
-        '@id': 'https://opbros.ai/#organization',
+        '@id': 'https://www.opbros.online/#organization',
       },
       potentialAction: {
         '@type': 'SearchAction',
-        target: 'https://opbros.ai/search?q={search_term_string}',
+        target: 'https://www.opbros.online/search?q={search_term_string}',
         'query-input': 'required name=search_term_string',
       },
     },
     {
       '@type': 'Service',
-      '@id': 'https://opbros.ai/#automation-service',
+      '@id': 'https://www.opbros.online/#automation-service',
       name: 'AI Workflow Automation',
       provider: {
-        '@id': 'https://opbros.ai/#business',
+        '@id': 'https://www.opbros.online/#business',
       },
       description: 'Custom AI-powered workflow automation systems that eliminate manual work and integrate with your existing tools.',
       areaServed: {
@@ -232,7 +246,7 @@ const jsonLd = {
     },
     {
       '@type': 'FAQPage',
-      '@id': 'https://opbros.ai/#faq',
+      '@id': 'https://www.opbros.online/#faq',
       mainEntity: [
         {
           '@type': 'Question',
@@ -275,7 +289,8 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+        <link rel="icon" href="/logo.png" type="image/png" />
+        <link rel="apple-touch-icon" href="/logo.png" />
         <meta name="geo.region" content="AU-NSW" />
         <meta name="geo.placename" content="Liverpool, Sydney" />
         <meta name="geo.position" content="-33.9209;150.9234" />

@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { useState, useEffect } from 'react'
 import { Menu, X, Sparkles } from 'lucide-react'
 
@@ -38,17 +39,18 @@ export function Header() {
       }`}
     >
       <nav className="max-w-7xl mx-auto px-6 flex items-center justify-between h-16">
-        {/* Logo with Google colors */}
-        <Link href="/" className="flex items-center gap-1 group">
+        {/* Logo */}
+        <Link href="/" className="flex items-center gap-2 group">
+          <Image
+            src="/logo.png"
+            alt="OpBros.Automation"
+            width={36}
+            height={36}
+            className="rounded-lg"
+          />
           <span className="font-bold text-xl tracking-tight">
-            <span className="text-[#4285f4]">O</span>
-            <span className="text-[#ea4335]">p</span>
-            <span className="text-[#fbbc04]">B</span>
-            <span className="text-[#4285f4]">r</span>
-            <span className="text-[#34a853]">o</span>
-            <span className="text-[#ea4335]">s</span>
+            OpBros<span className="text-gray-400 font-light">.online</span>
           </span>
-          <span className="text-gray-400 font-light">.ai</span>
         </Link>
 
         {/* Desktop Navigation */}
